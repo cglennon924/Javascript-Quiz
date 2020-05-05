@@ -53,7 +53,7 @@ var sportQuestions = [{
 var nQuestions= jsQuestions.length;
 // Global Time Interval Variable
 var timerInterval
-//Variable sets the Question Value to 0.
+//Variable sets the Question Value to 0. Which represents the index in array
 var questionValue = 0;
 // Variable sets the Quiz Time to 60 seconds.
 var timeRemaining = 60;
@@ -65,7 +65,7 @@ const highScores = JSON.parse(localStorage.getItem("highscores")) || [];
 const maxHighScore = 5;
 
 // Stored Variables to retrieve ID's from document. 
-var start = document.querySelector("#start");
+var begin = document.querySelector("#start");
 var timer = document.querySelector("#timer")
 var quizQuestions = document.querySelector("#quiz-questions")
 var questionNumber = document.querySelector("#question-number")
@@ -74,7 +74,7 @@ var choiceA = document.querySelector("#A");
 var choiceB = document.querySelector("#B");
 var choiceC = document.querySelector("#C");
 var choiceD = document.querySelector("#D");
-var newQuestion = document.querySelector("#nextQuestion");
+var nextQuestion = document.querySelector("#newQuestion");
 var finish = document.querySelector("#finish");
 var submit = document.querySelector("#submit");
 var initials = document.querySelector("#initials")
@@ -96,10 +96,51 @@ function startTimer () {
     
     }, 1000);
     // Call Function to Render Question when Start Button clicked.
-    renderQuestion()
+    startQuestion()
+}
+
+function startQuestion (){
+    questionNumber.textContent =("Question #" + (questionValue + 1));
+    var uniqueQuestion = sportQuestions[questionValue].question
+    currentQuestion.textContent =uniqueQuestion
+ // Creates different choice selections for user //
+    var selectA = sportQuestions[questionValue].optionA;
+    choiceA.textContent =selectA;
+
+    var selectB = sportQuestions[questionValue].optionB;
+    choiceB.textContent =selectB;
+
+    var selectC = sportQuestions[questionValue].optionC;
+    choiceC.textContent =selectC;
+
+    var selectD = sportQuestions[questionValue].optionD;
+    choiceD.textContent =selectD;
+
+}
+
+function newQuestion () {
+    var checked = document.queryselector('input[type=radio]:checked');
+    var answer = checked.value 
+    if (sportQuestions[questionValue].correct===answer) {
+
+        score+=1;
+        questionValue++;
+    }
+    else{
+        questionValue ++;
+        timeRemaining-=10;
+        alert ("Wrong!");
+    }
+
+    startQuestion();
+
 }
 
 
+
+
+begin.addEventListener("click",startTimer);
+nextQuestion.addEventListener("click", newQuestion);
 
 
 
@@ -145,3 +186,5 @@ function startTimer () {
 
 
 ]
+
+
