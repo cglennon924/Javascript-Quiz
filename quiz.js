@@ -134,16 +134,6 @@ function startQuestion (){
     }
 
 
-
-
-
-
-
-
-
-
-
-
 }
 
 function newQuestion () {
