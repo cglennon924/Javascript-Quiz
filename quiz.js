@@ -99,6 +99,10 @@ function startTimer () {
     startQuestion()
 }
 
+
+
+
+
 function startQuestion (){
     questionNumber.textContent =("Question #" + (questionValue + 1));
     var uniqueQuestion = sportQuestions[questionValue].question
@@ -115,6 +119,30 @@ function startQuestion (){
 
     var selectD = sportQuestions[questionValue].optionD;
     choiceD.textContent =selectD;
+
+//Changes Quiz Questions CSS to Visible.
+    quizQuestions.setAttribute("style", "visibility: visible");
+//Changes Start Button CSS to Hidden. 
+    start.setAttribute("style", "visibility: hidden");
+//Changes Next Question Button CSS to Visible.
+    newQuestion.setAttribute("style", "visibility: visible");
+
+// When Question Number is equal to 4 the Next Question Button is Hidden and Finish Button is Visible.
+    if(questionValue === nQuestions - 1) {
+    finish.setAttribute("style", "visibility: visible");
+    newQuestion.setAttribute("style", "visibility: hidden")
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
