@@ -136,11 +136,79 @@ function newQuestion () {
 
 }
 
+function finishQuiz (){
+    clearInterval(timerInterval);
+    // Ensures that last question answered is scored when user clicks the finish button
+    var checkedOption = document.querySelector('input[type=radio]:checked');
+    var answer = checkedOption.value 
+    if(sportsQuestions[questionValue].correct == answer){
+        score+=1;
+        questionValue++;
+        alert("That was correct!");
+    }
+    
+    // Returns the Users Quiz Score
+    myscore.textContent = ("Congradulations you got " + score + " out of 5");
+    //Sets the Highscore User Input CSS to Visible
+    hsform.setAttribute("style", "visibility: visible");
+    //Sets the Quiz Questions CSS to Hidden
+    quizQuestions.setAttribute("style", "visibility: hidden");
+    //Sets the Timer CSS to Hidden
+    timer.setAttribute("style", "visibility: hidden");
+    //Sets the New Question Button CSS to Hidden
+    newQuestion.setAttribute("style", "visibility: hidden");
+    //Sets the Finish Button CSS to Hidden
+    finish.setAttribute("style", "visibility: hidden");
+    
+
+};
+
+function endQuiz(){
+    clearInterval(timerInterval);
+    //Tells user final score//
+    myscore.textContent =("Congrats! You got " + "out of 5");
+    //Sets the Highscore User Input CSS to Visible
+    hsform.setAttribute("style", "visibility: visible");
+    //Sets the Quiz Questions CSS to Hidden
+    quizQuestions.setAttribute("style", "visibility: hidden");
+    //Sets the Timer CSS to Hidden
+    timer.setAttribute("style", "visibility: hidden");
+    //Sets the New Question Button CSS to Hidden
+    newQuestion.setAttribute("style", "visibility: hidden");
+    //Sets the Finish Button CSS to Hidden
+    finish.setAttribute("style", "visibility: hidden");
 
 
+}
 
+function addToHighscore (event){
+    //Prevents Page from Refreshing on click. 
+    event.preventDefault();
+    //Stores Userscore as a object
+    var userPoints = {
+        points: score,
+        name: initials.value
+    };
+    // Pushes Userscore to local storage
+    highScores.push(userPoints);
+    //Stores the Highscores from Highest to Lowest. 
+    highScores.sort((a, b) => b.points- a.points);
+    //Stores only the top 5 Highest Scores. 
+    highScores.splice(5);
+    
+    //Stores Highscores in Local Storage
+    localStorage.setItem("highscores", JSON.stringify(highScores));
+    window.location.assign("highscore.html");
+};
+
+//Starts the initial timer
 begin.addEventListener("click",startTimer);
+//Signals user is ready for next question prompt
 nextQuestion.addEventListener("click", newQuestion);
+//Finish Event Listener to call Finish Quiz Function. 
+finish.addEventListener("click", finishQuiz);
+//Submit Event Listenter to call Add To Leaderboard Function. 
+submit.addEventListener("click", addToLeaderboard);
 
 
 
@@ -184,7 +252,5 @@ nextQuestion.addEventListener("click", newQuestion);
 
 
 
-
-]
 
 

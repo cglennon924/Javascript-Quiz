@@ -1,0 +1,73 @@
+/* Background to cover the entire quiz page*/
+.background {
+    background-image: url("https://wrcb.images.worldnow.com/images/19370183_G.jpg?lastEditedDate=1588039072000");
+    min-height: 1000px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/* Styling to intially hide sections of quiz till start button is pressed*/
+.hide,
+.hide-finish {
+    visibility: hidden;
+}
+
+/* Google Font and styling for Javascript Quiz*/
+.quiz,
+.quiz-head,
+.quiz-timer,
+.hs-form,
+.hs-header {
+    padding: 2rem;
+    font-family: 'Courgette', cursive;
+    color:white;
+}
+
+/* Styling for Buttons*/
+.fin-btn,
+.st-btn,
+.nxt-btn,
+.sub-btn {
+    border: none;
+    background-color: green;
+    border-radius: 25px;
+    color: hsl(0, 0%, 100%);
+    font-size: 22px;
+    line-height: 22px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    cursor: pointer;
+}
+
+ 
+/* Styling for Highscore Input Form, Quiz Timer, Answer Options and Highscore Leaderboard*/
+.hs-form,
+.option,
+.hs-leaderboard,
+.quiz-timer {
+    font-size:2rem;
+    padding:1rem;
+    margin: auto;
+    color: whitesmoke;
+}
+
+ 
+/* Styling for High Score Initial Input Bar*/
+.in-input{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: white;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-family: 'Open Sans', sans-serif;
+}
