@@ -50,7 +50,7 @@ var sportQuestions = [{
 }]
 
 // Variable set to the length of the Questions Array. 
-var nQuestions= jsQuestions.length;
+var nQuestions= sportQuestions.length;
 // Global Time Interval Variable
 var timerInterval
 //Variable sets the Question Value to 0. Which represents the index in array
@@ -60,7 +60,7 @@ var timeRemaining = 60;
 // Variable sets the initial score to 0 points.
 var score = 0;
 //Sets a constant to retrieve highscores in local storage. 
-const highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+// const highScores = JSON.parse(localStorage.getItem("highscores")) || [];
 // Sets a constant to the highest score on quiz of 5 points. 
 const maxHighScore = 5;
 
@@ -103,7 +103,7 @@ function startTimer () {
 
 
 
-function startQuestion (){
+function startQuestion(){
     questionNumber.textContent =("Question #" + (questionValue + 1));
     var uniqueQuestion = sportQuestions[questionValue].question
     currentQuestion.textContent =uniqueQuestion
@@ -159,7 +159,7 @@ function finishQuiz (){
     // Ensures that last question answered is scored when user clicks the finish button
     var checkedOption = document.querySelector('input[type=radio]:checked');
     var answer = checkedOption.value 
-    if(sportsQuestions[questionValue].correct == answer){
+    if(sportQuestions[questionValue].correct == answer){
         score+=1;
         questionValue++;
         alert("That was correct!");
@@ -226,7 +226,7 @@ nextQuestion.addEventListener("click", newQuestion);
 //Finish Event Listener to call Finish Quiz Function. 
 finish.addEventListener("click", finishQuiz);
 //Submit Event Listenter to call Add To Leaderboard Function. 
-submit.addEventListener("click", addToLeaderboard);
+submit.addEventListener("click", addToHighscore);
 
 
 

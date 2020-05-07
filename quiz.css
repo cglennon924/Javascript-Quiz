@@ -9,11 +9,6 @@
 }
 
 
-/* Styling to intially hide sections of quiz till start button is pressed*/
-.hide,
-.hide-finish {
-    visibility: hidden;
-}
 
 /* Google Font and styling for Javascript Quiz*/
 .quiz,
