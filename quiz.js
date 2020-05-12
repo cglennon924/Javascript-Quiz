@@ -66,9 +66,9 @@ const maxHighScore = 5;
 
 // Stored Variables to retrieve ID's from document. 
 var begin = document.querySelector("#start");
-var timer = document.querySelector("#timer")
-var quizQuestions = document.querySelector("#quiz-questions")
-var questionNumber = document.querySelector("#question-number")
+var timer = document.querySelector("#timer");
+var quizQuestions = document.querySelector("#quiz-questions");
+var questionNumber = document.querySelector("#question-number");
 var currentQuestion = document.querySelector("#current-question");
 var choiceA = document.querySelector("#A");
 var choiceB = document.querySelector("#B");
@@ -77,7 +77,7 @@ var choiceD = document.querySelector("#D");
 var nextQuestion = document.querySelector("#newQuestion");
 var finish = document.querySelector("#finish");
 var submit = document.querySelector("#submit");
-var initials = document.querySelector("#initials")
+var initials = document.querySelector("#initials");
 var hsform = document.querySelector("#hsform");
 var myscore = document.querySelector("#score");
 
@@ -125,19 +125,19 @@ function startQuestion(){
 //Changes Start Button CSS to Hidden. 
     start.setAttribute("style", "visibility: hidden");
 //Changes Next Question Button CSS to Visible.
-    newQuestion.setAttribute("style", "visibility: visible");
+    nextQuestion.setAttribute("style", "visibility: visible");
 
 // When Question Number is equal to 4 the Next Question Button is Hidden and Finish Button is Visible.
-    if(questionValue === nQuestions - 1) {
+    /*if(questionValue === nQuestions - 1) {
     finish.setAttribute("style", "visibility: visible");
-    newQuestion.setAttribute("style", "visibility: hidden")
-    }
+    nextQuestion.setAttribute("style", "visibility: hidden")
+    }*/
 
 
 }
 
 function newQuestion () {
-    var checked = document.queryselector('input[type=radio]:checked');
+    var checked = document.querySelector("input[type=radio]:checked");
     var answer = checked.value 
     if (sportQuestions[questionValue].correct===answer) {
 
@@ -174,7 +174,7 @@ function finishQuiz (){
     //Sets the Timer CSS to Hidden
     timer.setAttribute("style", "visibility: hidden");
     //Sets the New Question Button CSS to Hidden
-    newQuestion.setAttribute("style", "visibility: hidden");
+    nextQuestion.setAttribute("style", "visibility: hidden");
     //Sets the Finish Button CSS to Hidden
     finish.setAttribute("style", "visibility: hidden");
     
@@ -192,7 +192,7 @@ function endQuiz(){
     //Sets the Timer CSS to Hidden
     timer.setAttribute("style", "visibility: hidden");
     //Sets the New Question Button CSS to Hidden
-    newQuestion.setAttribute("style", "visibility: hidden");
+    nextQuestion.setAttribute("style", "visibility: hidden");
     //Sets the Finish Button CSS to Hidden
     finish.setAttribute("style", "visibility: hidden");
 
