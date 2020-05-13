@@ -1,107 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width-device-width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quiz on Javascript</title>
-<!-- Custom Style Sheet-->
+    <!-- Custom Style Sheet-->
     <link rel="stylesheet" type="text/css" href="./quiz.css">
-<!-- Bootstrap Stylesheet-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<!--Google Font-->
+    <!-- Bootstrap Stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
-    
-<!-- Bootstrap NavBar to allow users to toggle between Index HTML and Highscores HTML-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- Bootstrap NavBar to allow users to toggle between Index HTML and Highscores HTML-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html" title="Home">Javascript Quiz</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="highscore.html" title="Highscores">Highscores<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="highscore.html" title="Highscores">Highscores<span
+                            class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
-</nav>
-<!--End Bootsrap NavBar-->
-<div class="background">
-    <div class= "quiz-head text-center">
-        <h1>Can you get a HighScore on this Quiz??</h1>
-    </div>
+    </nav>
+    <!--End Bootsrap NavBar-->
+    <div class="background">
+        <div class="quiz-head text-center">
+            <h1>Can you get a HighScore on this Quiz??</h1>
+        </div>
 
-<!-- Quiz Start Button and Timer-->
-<div class="text-center">
-    <button class="st-btn" id="start">Start Quiz</button>
-    <br>
-    <h2 class="quiz-timer" id="timer"></h2>
-    
-</div>
+        <!-- Quiz Start Button and Timer-->
+        <div class="text-center">
+            <div class="" id="startArea">
+                <button class="st-btn" id="start">Start Quiz</button>
+            </div>
+            
+            <h2 class="quiz-timer" id="timer"></h2>
 
-<!-- Quiz-->
-<div id="quiz-questions" class="quiz container hide">
-    <!-- Question Number-->
-    <h1 id="question-number"></h1>
-    <!-- Current Question-->
-    <h2 id="current-question"></h2>
+        </div>
+
+        <!-- Quiz-->
+        <div id="quiz-questions" class="quiz container hide">
+            <!-- Question Number-->
+            <h1 id="question-number"></h1>
+            <!-- Current Question-->
+            <h2 id="current-question"></h2>
 
 
-<!--Answer Options with Individual Radio Type input-->
-    <div>
-    <label class="option row" ><input type="radio" name="choice" value="A"></input><span id="A"></span></label>
+            <!--Answer Options with Individual Radio Type input-->
+            <div id="buttonArray">
+                <!-- <label class="option row" ><input type="radio" name="choice" value="A"></input><span id="A"></span></label>
     <label class="option row" ><input type="radio" name="choice" value="B"></input><span id="B"></span></label>
     <label class="option row" ><input type="radio" name="choice" value="C"></input><span id="C"></span></label>
-    <label class="option row" ><input type="radio" name="choice" value="D"></input><span id="D"></span></label>
-    </div>
-</div>
-
-<div class="container">
-    <!-- Next Question Btn-->
-    <button class="row hide nxt-btn" id="newQuestion">Next Question</button>
-    <!--Finish Quiz Btn-->
-    <button class="row hide-finish fin-btn" id="finish">Finish</button>
-</div>
-
-<!-- Highscore Input Form-->
-<form class="hide hs-form container" id="hsform">
-    <div class="form-row">
-        <div class="text-center form-group text-left col-md-12">
-            <!--Score Returned By JS-->
-            <div id="score"></div>
-            <!-- User input initials to submit Quiz taker score-->
-            <label for="initials">Please enter your intials here to submit your score!</label>
-            <input type="text" class="form-control in-input text-center" id="initials" placeholder="ABC">
-            <!--Submit Button to store Quiz takers score and initals in local storage-->
-            <button class="justify-content-center sub-btn" id="submit"> Submit </button>
+    <label class="option row" ><input type="radio" name="choice" value="D"></input><span id="D"></span></label> -->
+            </div>
         </div>
+
+        <!-- <div class="container"> -->
+        <!-- Next Question Btn-->
+        <!-- <button class="row hide nxt-btn" id="newQuestion">Next Question</button> -->
+        <!--Finish Quiz Btn-->
+        <!-- <button class="row hide-finish fin-btn" id="finish">Finish</button> -->
+        <!-- </div> -->
+
+        <!-- Highscore Input Form-->
+        <form class="hide hs-form container d-none" id="hsform" >
+            <div class="form-row">
+                <div class="text-center form-group text-left col-md-12">
+                    <!--Score Returned By JS-->
+                    <div id="score"></div>
+                    <!-- User input initials to submit Quiz taker score-->
+                    <label for="initials">Please enter your intials here to submit your score!</label>
+                    <input type="text" class="form-control in-input text-center" id="initials" placeholder="ABC">
+                    <!--Submit Button to store Quiz takers score and initals in local storage-->
+                    <button class="justify-content-center sub-btn" id="submit"> Submit </button>
+                </div>
+            </div>
+        </form>
+
     </div>
-</form>
-
-</div>
 
 
 
 
-<!--Bootstrap Scripts for NavBar and Custom Highscore Javascript-->
-<script src="./quiz.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--Bootstrap Scripts for NavBar and Custom Highscore Javascript-->
+    <script src="./quiz.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-    
