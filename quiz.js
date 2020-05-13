@@ -70,10 +70,7 @@ var timer = document.querySelector("#timer");
 var quizQuestions = document.querySelector("#quiz-questions");
 var questionNumber = document.querySelector("#question-number");
 var currentQuestion = document.querySelector("#current-question");
- var buttonArea = document.querySelector("#buttonArray");
-// var choiceB = document.querySelector("#B");
-// var choiceC = document.querySelector("#C");
-// var choiceD = document.querySelector("#D");
+var buttonArea = document.querySelector("#buttonArray");
 var nextQuestion = document.querySelector("#newQuestion");
 var finish = document.querySelector("#finish");
 var submit = document.querySelector("#submit");
@@ -107,18 +104,7 @@ function startQuestion() {
     questionNumber.textContent = ("Question #" + (questionValue + 1));
     currentQuestion.textContent = sportQuestions[questionValue].question
     document.querySelector("#startArea").setAttribute('class','d-none')
-    // Creates different choice selections for user //
-    // var selectA = sportQuestions[questionValue].optionA;
-    // choiceA.textContent =selectA;
-
-    // var selectB = sportQuestions[questionValue].optionB;
-    // choiceB.textContent =selectB;
-
-    // var selectC = sportQuestions[questionValue].optionC;
-    // choiceC.textContent =selectC;
-
-    // var selectD = sportQuestions[questionValue].optionD;
-    // choiceD.textContent =selectD;
+    
     buttonArea.innerHTML=""
     for (let i = 0; i < sportQuestions[questionValue].options.length; i++) {
         var currentAnswer = sportQuestions[questionValue].options[i]
@@ -133,26 +119,14 @@ function startQuestion() {
         buttonArea.appendChild(newDiv)
     }
 
-    //Changes Quiz Questions CSS to Visible.
-   // quizQuestions.setAttribute("style", "visibility: visible");
-    //Changes Start Button CSS to Hidden. 
-   // start.setAttribute("style", "visibility: hidden");
-    //Changes Next Question Button CSS to Visible.
-   // nextQuestion.setAttribute("style", "visibility: visible");
 
-    // When Question Number is equal to 4 the Next Question Button is Hidden and Finish Button is Visible.
-    // if (questionValue === nQuestions - 1) {
-    //     finish.setAttribute("style", "visibility: visible");
-    //     nextQuestion.setAttribute("style", "visibility: hidden")
-    // }
 
 
 }
 
 function newQuestion(guess) {
     console.log(guess)
-    // var checked = document.querySelector("input[type=radio]:checked");
-    // var answer = checked.value
+  
     if (sportQuestions[questionValue].correct !== sportQuestions[questionValue].options[guess]) {
         timeRemaining -= 10
     }
@@ -171,15 +145,7 @@ function finishQuiz() {
     document.querySelector('#hsform').classList.remove('d-none')
     buttonArea.setAttribute('class', 'd-none')
     clearInterval(timerInterval);
-    // Ensures that last question answered is scored when user clicks the finish button
-    // var checkedOption = document.querySelector('input[type=radio]:checked');
-    // var answer = checkedOption.value
-    // if (sportQuestions[questionValue].correct == answer) {
-    //     score += 1;
-    //     questionValue++;
-    //     alert("That was correct!");
-    // }
-
+ 
     // Returns the Users Quiz Score
     myscore.textContent = ("Congradulations you got " + timeRemaining + " seconds!");
     //Sets the Highscore User Input CSS to Visible
@@ -238,11 +204,7 @@ function addToHighscore(event) {
 
 //Starts the initial timer
 begin.addEventListener("click", startTimer);
-//Signals user is ready for next question prompt
-//nextQuestion.addEventListener("click", newQuestion);
-//Finish Event Listener to call Finish Quiz Function. 
-//finish.addEventListener("click", finishQuiz);
-//Submit Event Listenter to call Add To Leaderboard Function. 
+
 submit.addEventListener("click", addToHighscore);
 
 
