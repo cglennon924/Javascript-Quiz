@@ -39,15 +39,17 @@
 
  
 /* Styling for Highscore Input Form, Quiz Timer, Answer Options and Highscore Leaderboard*/
-.hs-form,
+
 .option,
-.hs-leaderboard,
-.quiz-timer {
+.quiz-timer,
+.hs-form,
+.hs-leaderboard {
     font-size:2rem;
     padding:1rem;
     margin: auto;
-    color: whitesmoke;
+    color: red;
 }
+
 
  
 /* Styling for High Score Initial Input Bar*/
