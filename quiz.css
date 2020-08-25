@@ -18,7 +18,7 @@
 .hs-header {
     padding: 2rem;
     font-family: 'Courgette', cursive;
-    color:white;
+    color:orange;
 }
 
 /* Styling for Buttons*/
@@ -47,7 +47,8 @@
     font-size:2rem;
     padding:1rem;
     margin: auto;
-    color: red;
+    color: lightblue;
+    text-shadow: black;
 }
 
 
